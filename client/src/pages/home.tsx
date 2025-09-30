@@ -4,6 +4,7 @@ import PricingTables from "@/components/pricing-tables";
 import PromotionalPackages from "@/components/promotional-packages";
 import Gallery from "@/components/gallery";
 import Testimonials from "@/components/testimonials";
+import Booking from "@/components/booking";
 import Location from "@/components/location";
 import Footer from "@/components/footer";
 import WhatsAppFloat from "@/components/whatsapp-float";
@@ -34,6 +35,7 @@ export default function Home() {
       <PromotionalPackages />
       <Gallery />
       <Testimonials />
+      <Booking />
       <Location />
       <Footer />
       <WhatsAppFloat />
