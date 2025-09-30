@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import Hero from "@/components/hero";
 import PricingTables from "@/components/pricing-tables";
 import PromotionalPackages from "@/components/promotional-packages";
+import Gallery from "@/components/gallery";
 import Location from "@/components/location";
 import Footer from "@/components/footer";
 import WhatsAppFloat from "@/components/whatsapp-float";
@@ -30,6 +31,7 @@ export default function Home() {
       <Hero />
       <PricingTables />
       <PromotionalPackages />
+      <Gallery />
       <Location />
       <Footer />
       <WhatsAppFloat />
