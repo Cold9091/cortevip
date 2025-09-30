@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 4%);
+  --foreground: hsl(45, 100%, 95%);
+  --card: hsl(0, 0%, 10%);
+  --card-foreground: hsl(45, 100%, 95%);
+  --popover: hsl(0, 0%, 4%);
+  --popover-foreground: hsl(45, 100%, 95%);
+  --primary: hsl(45, 85%, 55%);
+  --primary-foreground: hsl(0, 0%, 4%);
+  --secondary: hsl(45, 60%, 40%);
+  --secondary-foreground: hsl(45, 100%, 95%);
+  --muted: hsl(0, 0%, 15%);
+  --muted-foreground: hsl(45, 30%, 70%);
+  --accent: hsl(45, 90%, 60%);
+  --accent-foreground: hsl(0, 0%, 4%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --border: hsl(45, 30%, 30%);
+  --input: hsl(0, 0%, 15%);
+  --ring: hsl(45, 85%, 55%);
+  --radius: 0.5rem;
+  --font-sans: "Inter", sans-serif;
+  --font-serif: "Playfair Display", serif;
+  --font-display: "Cinzel", serif;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .gold-gradient {
+    background: linear-gradient(135deg, #D4AF37 0%, #F4D03F 50%, #C5A028 100%);
+  }
+  
+  .gold-text-gradient {
+    background: linear-gradient(135deg, #D4AF37 0%, #F4D03F 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  .hover-glow:hover {
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+    transition: box-shadow 0.3s ease;
+  }
+}
