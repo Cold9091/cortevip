@@ -55,16 +55,10 @@ export default function Footer() {
             <h4 className="font-semibold mb-4 text-primary">Navegação</h4>
             <div className="space-y-2 text-sm">
               <a href="#precos-fixos" className="block text-muted-foreground hover:text-primary transition-colors" data-testid="link-nav-precos">
-                Preços
+                Preços Fixos
               </a>
-              <a href="#galeria" className="block text-muted-foreground hover:text-primary transition-colors" data-testid="link-nav-galeria">
-                Galeria
-              </a>
-              <a href="#depoimentos" className="block text-muted-foreground hover:text-primary transition-colors" data-testid="link-nav-depoimentos">
-                Depoimentos
-              </a>
-              <a href="#agendamento" className="block text-muted-foreground hover:text-primary transition-colors" data-testid="link-nav-agendamento">
-                Agendamento
+              <a href="#precos-promocionais" className="block text-muted-foreground hover:text-primary transition-colors" data-testid="link-nav-promocoes">
+                Promoções
               </a>
               <a href="#localizacao" className="block text-muted-foreground hover:text-primary transition-colors" data-testid="link-nav-localizacao">
                 Localização
