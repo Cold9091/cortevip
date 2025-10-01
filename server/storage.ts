@@ -52,7 +52,7 @@ export class DbStorage implements IStorage {
       .select()
       .from(galleryImages)
       .where(eq(galleryImages.isActive, true))
-      .orderBy(galleryImages.displayOrder, galleryImages.createdAt);
+      .orderBy(galleryImages.displayOrder);
   }
 
   async createGalleryImage(image: InsertGalleryImage): Promise<GalleryImage> {
