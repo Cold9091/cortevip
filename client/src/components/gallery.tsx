@@ -24,7 +24,7 @@ export default function Gallery() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4 gold-text-gradient" data-testid="text-gallery-title">
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4 text-primary" data-testid="text-gallery-title">
             Galeria de Trabalhos
           </h2>
           <p className="text-muted-foreground text-lg">Resultados que falam por si</p>

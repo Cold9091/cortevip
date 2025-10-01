@@ -35,7 +35,7 @@ export default function PromotionalPackages() {
               Oferta Especial
             </span>
           </div>
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4 gold-text-gradient" data-testid="text-promotional-title">
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4 text-primary" data-testid="text-promotional-title">
             Tabela de Preços Promocional
           </h2>
           <p className="text-muted-foreground text-lg">Pacotes especiais em dias selecionados</p>

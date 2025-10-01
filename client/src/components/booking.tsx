@@ -103,7 +103,7 @@ export default function Booking() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4 gold-text-gradient" data-testid="text-booking-title">
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4 text-primary" data-testid="text-booking-title">
             Agende Seu Horário
           </h2>
           <p className="text-muted-foreground text-lg mb-8">
@@ -145,7 +145,7 @@ export default function Booking() {
               <Button
                 onClick={() => setIsDialogOpen(true)}
                 size="lg"
-                className="w-full gold-gradient hover:opacity-90 text-primary-foreground font-semibold text-lg py-6"
+                className="w-full dark-gradient hover:opacity-90 text-foreground font-semibold text-lg py-6"
                 data-testid="button-open-booking"
               >
                 <SiWhatsapp className="w-6 h-6 mr-2" />
@@ -279,7 +279,7 @@ export default function Booking() {
 
                 <Button
                   type="submit"
-                  className="w-full gold-gradient hover:opacity-90 text-primary-foreground font-semibold"
+                  className="w-full dark-gradient hover:opacity-90 text-foreground font-semibold"
                   disabled={createMutation.isPending}
                   data-testid="button-submit-booking"
                 >

@@ -24,7 +24,7 @@ export default function Location() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4 gold-text-gradient" data-testid="text-location-title">
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4 text-primary" data-testid="text-location-title">
             Nossa Localização
           </h2>
           <p className="text-muted-foreground text-lg">Visite-nos no Outlets Shopping Mall</p>

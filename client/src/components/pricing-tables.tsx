@@ -35,7 +35,7 @@ export default function PricingTables() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4 gold-text-gradient" data-testid="text-pricing-title">
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4 text-primary" data-testid="text-pricing-title">
             Tabela de Preços Fixo
           </h2>
           <p className="text-muted-foreground text-lg">Serviços profissionais com preços transparentes</p>
@@ -50,7 +50,7 @@ export default function PricingTables() {
         >
           <table className="w-full text-left border-collapse">
             <thead>
-              <tr className="gold-gradient">
+              <tr className="dark-gradient">
                 <th className="px-6 py-4 text-center w-20 text-primary-foreground font-bold uppercase tracking-wide text-sm">Nº</th>
                 <th className="px-6 py-4 text-primary-foreground font-bold uppercase tracking-wide text-sm">Designação</th>
                 <th className="px-6 py-4 text-right w-40 text-primary-foreground font-bold uppercase tracking-wide text-sm">Valor (Kz)</th>

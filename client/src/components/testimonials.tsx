@@ -84,13 +84,13 @@ export default function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4 gold-text-gradient" data-testid="text-testimonials-title">
+          <h2 className="font-display text-4xl md:text-5xl font-bold mb-4 text-primary" data-testid="text-testimonials-title">
             Depoimentos de Clientes
           </h2>
           <p className="text-muted-foreground text-lg mb-6">O que nossos clientes dizem sobre nós</p>
           <Button
             onClick={() => setIsDialogOpen(true)}
-            className="gold-gradient hover:opacity-90 text-primary-foreground font-semibold"
+            className="dark-gradient hover:opacity-90 text-foreground font-semibold"
             data-testid="button-add-testimonial"
           >
             <MessageCircle className="w-4 h-4 mr-2" />
@@ -246,7 +246,7 @@ export default function Testimonials() {
 
                 <Button
                   type="submit"
-                  className="w-full gold-gradient hover:opacity-90 text-primary-foreground font-semibold"
+                  className="w-full dark-gradient hover:opacity-90 text-foreground font-semibold"
                   disabled={createMutation.isPending}
                   data-testid="button-submit-testimonial"
                 >
