@@ -1,10 +1,10 @@
-# Deploy no Vercel - Guia Completo
+# Deploy no Vercel - Landing Page Estática
 
-Este projeto está configurado para deploy completo no Vercel com backend serverless e frontend estático.
+Este projeto é uma landing page estática pronta para deploy no Vercel.
 
 ## 🚀 Passos para Deploy
 
-### 1. Preparar o Repositório
+### 1. Preparar o Repositório Git
 ```bash
 git init
 git add .
@@ -17,156 +17,151 @@ git push -u origin main
 1. Acesse [vercel.com](https://vercel.com)
 2. Clique em "Add New Project"
 3. Importe seu repositório do GitHub
-4. Configure as seguintes opções:
+4. O Vercel detectará automaticamente:
    - **Framework Preset:** Vite
-   - **Build Command:** `npm run build` (auto-detectado)
-   - **Output Directory:** `dist` (auto-detectado)
-   - **Install Command:** `npm install` (auto-detectado)
+   - **Build Command:** `npm run build`
+   - **Output Directory:** `dist`
+   - **Install Command:** `npm install`
 
-### 3. Configurar Variáveis de Ambiente
-No dashboard do Vercel, vá em **Settings → Environment Variables** e adicione:
-
-```
-DATABASE_URL=postgresql://user:password@host/database?sslmode=require
-```
-
-**Como obter DATABASE_URL:**
-
-#### Opção A: Vercel Postgres (Recomendado)
-1. No dashboard do projeto, vá em **Storage**
-2. Clique em **Create Database → Postgres**
-3. A variável `DATABASE_URL` será automaticamente adicionada
-
-#### Opção B: Neon (Grátis e Serverless)
-1. Acesse [neon.tech](https://neon.tech)
-2. Crie um novo projeto
-3. Copie a connection string
-4. Cole em **DATABASE_URL** no Vercel
-
-#### Opção C: Supabase
-1. Acesse [supabase.com](https://supabase.com)
-2. Crie um novo projeto
-3. Vá em Settings → Database
-4. Copie a "Connection String" (modo Connection pooling)
-5. Cole em **DATABASE_URL** no Vercel
-
-### 4. Migrar o Banco de Dados
-Após configurar DATABASE_URL:
-
-```bash
-# Localmente, com a DATABASE_URL do Vercel
-export DATABASE_URL="sua-connection-string"
-npm run db:push
-```
-
-Ou crie as tabelas manualmente no console SQL do seu provedor.
-
-### 5. Deploy
-1. Clique em **Deploy** no Vercel
-2. Aguarde o build completar
-3. Acesse o URL fornecido pelo Vercel
+### 3. Deploy
+1. Clique em **Deploy**
+2. Aguarde o build completar (1-2 minutos)
+3. Acesse o URL fornecido: `https://seu-projeto.vercel.app`
 
 ## 📁 Estrutura do Projeto
 
 ```
-├── api/              # Backend serverless (Vercel Functions)
-│   └── index.ts      # Função principal da API
 ├── client/           # Frontend Vite/React
 │   ├── src/
-│   └── index.html
-├── shared/           # Tipos compartilhados
-│   └── schema.ts
-├── vercel.json       # Configuração do Vercel
-├── db.ts             # Conexão com banco (Neon serverless)
-└── .vercelignore     # Arquivos ignorados no deploy
+│   │   ├── components/
+│   │   ├── pages/
+│   │   └── App.tsx
+│   ├── index.html
+│   └── public/      # Assets estáticos (favicon, imagens)
+├── vercel.json      # Configuração do Vercel
+└── dist/            # Build output (gerado automaticamente)
 ```
 
 ## 🔧 Como Funciona
 
 ### Frontend
-- Build estático do Vite
-- Servido diretamente pelo Vercel CDN
-- Todos os assets em `/dist`
+- **Build Tool:** Vite
+- **Framework:** React + TypeScript
+- **Styling:** Tailwind CSS + shadcn/ui
+- **Animações:** Framer Motion
+- **Deploy:** Estático via Vercel CDN
 
-### Backend
-- Função serverless em `/api`
-- Rotas disponíveis em `/api/*`
-- Executa em Node.js 20.x
-
-### Banco de Dados
-- PostgreSQL via Neon (HTTP-based)
-- Otimizado para serverless
-- Sem connection pooling necessário
+### Performance
+- **CDN Global:** Conteúdo servido de edge locations
+- **Cache Automático:** Assets cacheados automaticamente
+- **Compressão:** Brotli/Gzip automático
+- **HTTPS:** SSL/TLS gratuito
 
 ## 🌐 URLs após Deploy
 
-- **Frontend:** `https://seu-projeto.vercel.app`
-- **API:** `https://seu-projeto.vercel.app/api`
+- **Site:** `https://seu-projeto.vercel.app`
+- **Preview:** URL único para cada branch/PR
 
-## 🔒 Variáveis de Ambiente Necessárias
+## ⚙️ Configuração Opcional
 
-| Variável | Descrição | Obrigatória |
-|----------|-----------|-------------|
-| `DATABASE_URL` | Connection string PostgreSQL | ✅ Sim |
+### Domínio Personalizado
+1. Vá em **Settings → Domains**
+2. Adicione seu domínio
+3. Configure DNS conforme instruções
 
-## ⚡ Limitações Serverless
+### Analytics
+1. Vá em **Analytics** tab
+2. Ative Vercel Analytics
+3. Visualize métricas de performance
 
-- **Timeout:** 10 segundos (Hobby), 60s (Pro)
-- **Tamanho:** 250MB por função
-- **Memória:** 1024MB (Hobby), 3000MB (Pro)
-- **Cold Start:** ~200-500ms
+### Environment Variables
+Nenhuma variável é necessária para o site funcionar. Se precisar adicionar no futuro:
+1. Vá em **Settings → Environment Variables**
+2. Adicione variáveis com prefixo `VITE_`
+3. Redeploy para aplicar
 
 ## 🐛 Troubleshooting
 
-### Erro: "DATABASE_URL must be set"
-- Verifique se a variável está configurada em **Environment Variables**
-- Redeploy o projeto após adicionar a variável
-
-### Erro: "Cannot find module"
-- Verifique se todas as dependências estão em `dependencies` (não `devDependencies`)
-- Rode `npm install` localmente e commit o `package-lock.json`
-
-### API retorna 404
-- Verifique se o arquivo `api/index.ts` existe
-- Confirme que o `vercel.json` está na raiz do projeto
-
 ### Build falha
-- Rode `npm run build` localmente para identificar erros
-- Verifique os logs de build no Vercel
+```bash
+# Teste o build localmente
+npm run build
+
+# Verifique erros no terminal
+npm run dev
+```
+
+### Erro 404 em rotas
+- O projeto usa client-side routing (Wouter)
+- O `vercel.json` já está configurado para SPA
+- Verifique se `cleanUrls: true` está no `vercel.json`
+
+### Imagens não carregam
+- Coloque imagens em `client/public/`
+- Ou importe via `@assets/` no código
+- Verifique caminhos relativos
+
+### Favicon não aparece
+- Arquivo deve estar em `client/public/favicon.png`
+- Referenciado em `client/index.html`
+- Limpe cache do navegador (Ctrl+F5)
 
 ## 📝 Comandos Úteis
 
 ```bash
-# Testar build localmente
+# Build local
 npm run build
 
-# Testar localmente com Vercel CLI
-npx vercel dev
+# Preview do build
+npm run preview
 
-# Deploy via CLI
+# Dev server
+npm run dev
+
+# Deploy via Vercel CLI (opcional)
 npx vercel --prod
-
-# Ver logs
-npx vercel logs
 ```
 
-## 🎯 Checklist Final
+## 🎯 Checklist de Deploy
 
-- [ ] Código commitado no GitHub
+- [x] `vercel.json` configurado
+- [x] Build scripts no `package.json`
+- [x] Favicon em `client/public/`
+- [ ] Código commitado no Git
+- [ ] Push para GitHub
 - [ ] Projeto importado no Vercel
-- [ ] DATABASE_URL configurado
-- [ ] Banco de dados migrado (`npm run db:push`)
-- [ ] Deploy concluído com sucesso
-- [ ] Site acessível via URL do Vercel
-- [ ] API respondendo em `/api`
+- [ ] Deploy concluído
+- [ ] Site acessível
 
-## 🚀 Próximos Passos
+## 🚀 Recursos do Vercel (Grátis)
 
-1. **Domínio Custom:** Configure em Settings → Domains
-2. **Analytics:** Ative em Analytics tab
-3. **Monitoring:** Configure alertas em Settings → Integrations
-4. **CI/CD:** Já configurado automaticamente via GitHub
+- ✅ Deploys ilimitados
+- ✅ SSL automático
+- ✅ CDN global
+- ✅ Preview deployments (PRs)
+- ✅ Analytics básico
+- ✅ 100GB bandwidth/mês
+
+## 🔄 Deploy Automático
+
+Após configurar:
+- **Push to main:** Deploy automático em produção
+- **Pull Request:** Preview deploy único
+- **Rollback:** Reverta para deploys anteriores
+
+## 📱 Otimizações Incluídas
+
+- ✅ Compressão de assets
+- ✅ Code splitting automático
+- ✅ Tree shaking (dead code removal)
+- ✅ CSS minificado
+- ✅ Imagens otimizadas
+- ✅ Fonts preloaded
 
 ---
 
-✅ **Projeto pronto para produção no Vercel!**
+## 🎉 Pronto para Produção!
+
+Seu site CORTE VIP está otimizado e pronto para receber visitantes do mundo todo via Vercel CDN.
+
+**URL esperado:** `https://corte-vip.vercel.app` (ou seu domínio personalizado)
