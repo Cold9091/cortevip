@@ -6,14 +6,14 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const packages = [
   {
-    day: "Segunda-Feira",
+    day: "Segunda-Feira á Quarta Feira",
     price: "8.000",
-    services: ["Corte Dois Tempos", "Manicure", "Pedicure"],
+    services: ["Corte Dois Tempos", "Manicure", "Pintura nas unhas do pé"],
   },
   {
-    day: "Quarta-Feira",
-    price: "8.000",
-    services: ["Corte Picante", "Manicure", "Pedicure"],
+    day: "Segunda- Feira á Quarta-Feira",
+    price: "6.000",
+    services: ["Corte Picante", "Manicure", "Pintura nas unhas do pé"],
   },
 ];
 
@@ -93,7 +93,7 @@ export default function PromotionalPackages() {
               </div>
               <div className="flex items-start gap-3">
                 <Check className="w-6 h-6 text-primary flex-shrink-0 mt-0.5" />
-                <span className="text-foreground">Corte Francês + Manicure + Pedicure</span>
+                <span className="text-foreground">Corte Francês + Manicure + Pintura nas unhas do pé</span>
               </div>
             </CardContent>
           </Card>

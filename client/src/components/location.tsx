@@ -64,8 +64,8 @@ export default function Location() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-lg mb-2 text-primary">Endereço</h3>
-                    <p className="text-muted-foreground">Outlets Shopping Mall</p>
-                    <p className="text-muted-foreground">2CG2+G9, Luanda</p>
+                    <p className="text-muted-foreground">Avenida comandante fidel de Castro, km - 30 defronte a Vila Pacifica</p>
+                    <p className="text-muted-foreground">zango 0 Outlet fashion Mall</p>
                     <p className="text-muted-foreground">Angola</p>
                   </div>
                 </div>
